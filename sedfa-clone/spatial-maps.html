@@ -1,0 +1,2623 @@
+<!doctype html>
+<html class="wide wow-animation" lang="en">
+  <head>
+    <!-- Google Tracking Code -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8VZ40ZX3P5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-8VZ40ZX3P5");
+    </script>
+
+    <!-- Site Title-->
+    <title>Spatial Map</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <!--<link rel="icon" href="./images/favicon.ico" type="image/x-icon">-->
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="./favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./favicon/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="./favicon/site.webmanifest" />
+
+    <!-- Stylesheets-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//fonts.googleapis.com/css?family=Fira+Sans:300,600,800,800i%7COpen+Sans:300,400,400i"
+    />
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <style>
+      .ie-panel {
+        display: none;
+        background: #212121;
+        padding: 10px 0;
+        box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.3);
+        clear: both;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+      html.ie-10 .ie-panel,
+      html.lt-ie-10 .ie-panel {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ie-panel">
+      <a href="http://windows.microsoft.com/en-US/internet-explorer/"
+        ><img
+          src="./images/ie8-panel/warning_bar_0000_us.jpg"
+          height="42"
+          width="820"
+          alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."
+      /></a>
+    </div>
+    <div class="preloader">
+      <div class="cssload-container">
+        <svg class="filter" version="1.1">
+          <defs>
+            <filter id="gooeyness">
+              <fegaussianblur
+                in="SourceGraphic"
+                stddeviation="10"
+                result="blur"
+              ></fegaussianblur>
+              <fecolormatrix
+                in="blur"
+                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10"
+                result="gooeyness"
+              ></fecolormatrix>
+              <fecomposite
+                in="SourceGraphic"
+                in2="gooeyness"
+                operator="atop"
+              ></fecomposite>
+            </filter>
+          </defs>
+        </svg>
+        <div class="dots">
+          <div class="dot mainDot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <p>Loading...</p>
+      </div>
+    </div>
+    <!-- Page-->
+    <div class="page">
+      <!-- Page header-->
+      <header class="page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav
+            class="rd-navbar rd-navbar-default"
+            data-layout="rd-navbar-fixed"
+            data-sm-layout="rd-navbar-fixed"
+            data-sm-device-layout="rd-navbar-fixed"
+            data-md-layout="rd-navbar-fixed"
+            data-md-device-layout="rd-navbar-fixed"
+            data-lg-device-layout="rd-navbar-fixed"
+            data-lg-layout="rd-navbar-static"
+            data-xl-device-layout="rd-navbar-static"
+            data-xl-layout="rd-navbar-static"
+            data-xxl-device-layout="rd-navbar-static"
+            data-xxl-layout="rd-navbar-static"
+            data-stick-up-clone="false"
+            data-sm-stick-up="true"
+            data-md-stick-up="true"
+            data-lg-stick-up="true"
+            data-md-stick-up-offset="115px"
+            data-lg-stick-up-offset="35px"
+            data-body-class="rd-navbar-absolute"
+          >
+            <!-- RD Navbar Top Panel-->
+            <div class="rd-navbar-top-panel">
+              <div class="rd-navbar-top-panel__main">
+                <div
+                  class="rd-navbar-top-panel__toggle rd-navbar-fixed__element-1 rd-navbar-static--hidden"
+                  data-rd-navbar-toggle=".rd-navbar-top-panel__main"
+                >
+                  <span></span>
+                </div>
+                <div class="rd-navbar-top-panel__content">
+                  <div class="rd-navbar-top-panel__left">
+                    <ul class="rd-navbar-items-list">
+                      <li>
+                        <div
+                          class="unit flex-row align-items-center unit-spacing-xs"
+                        >
+                          <div class="unit__left">
+                            <span
+                              class="icon icon-sm icon-primary linear-icon-map-marker"
+                            ></span>
+                          </div>
+                          <div class="unit__body">
+                            <p>
+                              Sandton city tower, 2196 Johannesburg south Africa
+                              | NDB HEADQUARTERS. 1600, Guozhan Road, Pudong New
+                              District, Shanghai – 200126 China
+                            </p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div
+                          class="unit flex-row align-items-center unit-spacing-xs"
+                        >
+                          <div class="unit__left">
+                            <span
+                              class="icon icon-sm icon-primary linear-icon-telephone"
+                            ></span>
+                          </div>
+                          <div class="unit__body">
+                            <ul class="list-semicolon">
+                              <li>0764278670</li>
+                              <li>+(27) 107463316</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="rd-navbar-top-panel__right">
+                    <ul class="list-inline-xxs">
+                      <!--Facebook-->
+                      <li>
+                        <a
+                          href="https://www.facebook.com/Sedfa.dsbd/"
+                          target="_blank"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-facebook"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
+                            />
+                          </svg>
+                        </a>
+                      </li>
+
+                      <!--Tiktok-->
+                      <li>
+                        <a
+                          href="https://www.tiktok.com/@sedfa_dsbd"
+                          target="_blank"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="14"
+                            height="14"
+                            fill="currentColor"
+                            class="bi bi-tiktok"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"
+                            />
+                          </svg>
+                        </a>
+                      </li>
+
+                      <!--X-->
+                      <li>
+                        <a href="https://x.com/sedfa_dsbd" target="_blank">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="14"
+                            height="14"
+                            fill="currentColor"
+                            class="bi bi-twitter-x"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
+                            />
+                          </svg>
+                        </a>
+                      </li>
+
+                      <!--Instagram-->
+                      <li>
+                        <a
+                          href="https://www.instagram.com/sedfa_dsbd/"
+                          target="_blank"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="14"
+                            height="14"
+                            fill="currentColor"
+                            class="bi bi-instagram"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                            />
+                          </svg>
+                        </a>
+                      </li>
+
+                      <!--Linkedin-->
+                      <li>
+                        <a
+                          href="https://za.linkedin.com/company/small-enterprise-development-finance-agency"
+                          target="_blank"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="14"
+                            height="14"
+                            fill="currentColor"
+                            class="bi bi-linkedin"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+                            />
+                          </svg>
+                        </a>
+                      </li>
+
+                      <!--YouTube-->
+                      <li>
+                        <a
+                          href="https://www.youtube.com/@sedfa_dsbd"
+                          target="_blank"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-youtube"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"
+                            />
+                          </svg>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Tikka Tape-->
+            <a class="banner banner-top" href="./imbali-for-her.html"
+              ><img
+                src="./images/Imbali Applications TICKER TAPE 1@3x.png"
+                alt=""
+                height="0"
+            /></a>
+
+            <div class="rd-navbar-inner rd-navbar-search-wrap">
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel rd-navbar-search-lg_collapsable">
+                <button
+                  class="rd-navbar-toggle"
+                  data-rd-navbar-toggle=".rd-navbar-nav-wrap"
+                >
+                  <span></span>
+                </button>
+                <!-- RD Navbar Brand-->
+                <div class="rd-navbar-brand">
+                  <a class="brand-name" href="./index.html"
+                    ><img
+                      src="./images/sedfa-logo-main nav-menu.png"
+                      alt=""
+                      width="172"
+                      height="33"
+                  /></a>
+                </div>
+              </div>
+              <!-- RD Navbar Nav-->
+              <div class="rd-navbar-nav-wrap rd-navbar-search_not-collapsable">
+                <div class="rd-navbar-search_collapsable">
+                  <ul class="rd-navbar-nav">
+                    <li class="active"><a href="./index.html">Home</a></li>
+                    <li class="rd-navbar-nav-dropdown">
+                      <a
+                        href="./index.html"
+                        id="navbarOfferings"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="true"
+                        >Offerings</a
+                      >
+                      <ul
+                        class="rd-navbar-dropdown"
+                        aria-labelledby="navbarOfferings"
+                      >
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="./business-development.html"
+                            >Business Development</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="./financial-support.html"
+                            >Financial Support</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="./cooperative-support.html"
+                            >Cooperative Support</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="rd-navbar-nav-dropdown">
+                      <a
+                        href="./index.html"
+                        id="navbarMedia"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="true"
+                        >Media</a
+                      >
+                      <ul
+                        class="rd-navbar-dropdown"
+                        aria-labelledby="navbarMedia"
+                      >
+                        <li>
+                          <a class="dropdown-item" href="./media-releases.html"
+                            >Media Releases</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="./radio-sound-bites.html"
+                            >Radio Sound Bites</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="https://www.youtube.com/playlist?list=PL7M0ey3AQ2bODZw_hd6eax0pRlEMqO612"
+                            target="_blank"
+                            >ndb Podcast Channel</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="rd-navbar-nav-dropdown">
+                      <a
+                        href="./index.html"
+                        id="navbarPublications"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="true"
+                        >Publications</a
+                      >
+                      <ul
+                        class="rd-navbar-dropdown"
+                        aria-labelledby="navbarOfferings"
+                      >
+                        <li>
+                          <a class="dropdown-item" href="./annual-report.html"
+                            >Annual Report</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="./amathuba-newsletter.html"
+                            >Amathuba Newsletter</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="./sedfa-profiles.html"
+                            >NDB Profiles</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="./spatial-maps.html"
+                            >Spatial Maps</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="./publication/N PAIA AND POPIA MANUAL_V2 (APPROVED 12 Nov 2025).pdf"
+                            target="_blank"
+                            >PAIA Manual</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="https://careers.sedfa.org.za">Careers</a>
+                    </li>
+                    <li class="rd-navbar-nav-dropdown">
+                      <a
+                        id="navbarProcurement"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="true"
+                        >Procurement</a
+                      >
+                      <ul
+                        class="rd-navbar-dropdown"
+                        aria-labelledby="navbarProcurement"
+                      >
+                        <li>
+                          <a class="dropdown-item" href="./tenders.html"
+                            >Tenders</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="./rfq.html">RFQ's</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="rd-navbar-nav-dropdown">
+                      <a
+                        href="./index.html"
+                        id="navbarSupport"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="true"
+                        >Support</a
+                      >
+                      <ul
+                        class="rd-navbar-dropdown"
+                        aria-labelledby="navbarSupport"
+                      >
+                        <li>
+                          <a class="dropdown-item" href="./fraud-hotline.html"
+                            >Fraud Hotline</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="rd-navbar-nav-dropdown">
+                      <a
+                        href="./index.html"
+                        id="navbarContact"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="true"
+                        >Contact</a
+                      >
+                      <ul
+                        class="rd-navbar-dropdown"
+                        aria-labelledby="navbarOfferings"
+                      >
+                        <li>
+                          <a class="dropdown-item" href="./fraud-hotline.html"
+                            >NDB Offices</a
+                          >
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="./get-in-touch.html"
+                            >Get In Touch</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Parallax header-->
+      <section>
+        <section
+          class="section parallax-container context-dark"
+          data-parallax-img="images/banner-spatial-maps.webp"
+        >
+          <div class="parallax-content parallax-header">
+            <div class="parallax-header__inner context-dark">
+              <div class="parallax-header__content">
+                <div class="container">
+                  <div class="row justify-content-sm-center">
+                    <div class="col-md-10 col-xl-8">
+                      <h2 class="heading-decorated">Spatial Maps</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!--Dialog Modals-->
+
+      <!--Entity categories-->
+      <dialog id="entityCategories-dialog">
+        <h5>Entity Categories</h5>
+        <br />
+
+        <img src="./images/entity categories.webp" /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottom-modal"
+          commandfor="entityCategories-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--Entity categories BDS Provider-->
+      <dialog id="entityCategoriesBDS-dialog">
+        <h5>Entity Categories - BDS Provider</h5>
+        <br />
+
+        <img src="./images/entity categories - bds provider.webp" /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomBDS-modal"
+          commandfor="entityCategoriesBDS-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--Entity categories Funder-->
+      <dialog id="entityCategoriesFunder-dialog">
+        <h5>Entity Categories - Funder</h5>
+        <br />
+
+        <img src="./images/entity categories - funder.webp" /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomFunder-modal"
+          commandfor="entityCategoriesFunder-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!-- Divider -->
+
+      <!--Entity size All-->
+      <dialog id="entitySizeAll-dialog">
+        <h5>SEDFA Entity Size</h5>
+        <br />
+
+        <img src="./images/Entity size-all.webp" /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomAll-modal"
+          commandfor="entitySizeAll-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--Entity size Individual and Cooperative-->
+      <dialog id="entitySizeIC-dialog">
+        <h5>Entity Size - Individual and Cooperative</h5>
+        <br />
+
+        <img
+          src="./images/Entity size- individual and cooperative.webp"
+        /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomIC-modal"
+          commandfor="entitySizeIC-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--Entity size Institution and Corporate-->
+      <dialog id="entitySizeIAC-dialog">
+        <h5>Entity Size - Institution and Corporate</h5>
+        <br />
+
+        <img src="./images/Entity size- institution and corporate.webp" /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomIAC-modal"
+          commandfor="entitySizeIAC-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--Entity size Small Business-->
+      <dialog id="entitySizeSmall-dialog">
+        <h5>Entity Size - Small Business</h5>
+        <br />
+
+        <img src="./images/Entity size- small business.webp" /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomSmall-modal"
+          commandfor="entitySizeSmall-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!-- Divider -->
+
+      <!--Entity Type All-->
+      <dialog id="entityTypeAll-dialog">
+        <h5>All Entity Types</h5>
+        <br />
+
+        <img src="./images/entity types-all.webp" /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomTAll-modal"
+          commandfor="entityTypeAll-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--Entity Type Development Finance Institutions and Private Sector-->
+      <dialog id="entityTypeDFIPS-dialog">
+        <h5>
+          Entity Type - Development Finance Institutions and Private Sector
+        </h5>
+        <br />
+
+        <img
+          src="./images/Entity types - development finance institutions and private sector.webp"
+        /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomDFIPS-modal"
+          commandfor="entityTypeDFIPS-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--Entity Type Gov or Public Sector - Industry Assoc - International Dev-->
+      <dialog id="entityTypeGP-dialog">
+        <h5>
+          Entity Type - Gov or Public Sector - Industry Assoc - International
+          Developer
+        </h5>
+        <br />
+
+        <img
+          src="./images/Entity types - Gov or Public sector - Industry Assoc - International Dev.webp"
+        /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomGP-modal"
+          commandfor="entityTypeGP-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--Entity Type NGO/NPO-->
+      <dialog id="entityTypeNGO-dialog">
+        <h5>Entity Type - NGO/NPO</h5>
+        <br />
+
+        <img src="./images/Entity types - NPO - NGO.webp" /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomNGO-modal"
+          commandfor="entityTypeNGO-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!-- Divider -->
+
+      <!--Geographic Reach All-->
+      <dialog id="geographicReachAll-dialog">
+        <h5>All Geographic Reach</h5>
+        <br />
+
+        <img src="./images/geograhpic reach-all.webp" /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomGAll-modal"
+          commandfor="geographicReachAll-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--Geographic Reach International and Regional-->
+      <dialog id="geographicReachIR-dialog">
+        <h5>Geographic Reach - International and Regional</h5>
+        <br />
+
+        <img
+          src="./images/Geographic reach international and regional.webp"
+        /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomIR-modal"
+          commandfor="geographicReachIR-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--Geographic Reach Local and Provincial-->
+      <dialog id="geographicReachLP-dialog">
+        <h5>Geographic Reach - Local and Provincial</h5>
+        <br />
+
+        <img src="./images/Geographic reach local and provincial.webp" /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomLP-modal"
+          commandfor="geographicReachLP-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--Geographic Reach National-->
+      <dialog id="geographicReachN-dialog">
+        <h5>Geographic Reach - National</h5>
+        <br />
+
+        <img src="./images/Geographic reach national.webp" /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomN-modal"
+          commandfor="geographicReachN-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!-- Divider -->
+
+      <!--Project Outcomes - Deregistered Office or Entity Does Not Exist-->
+      <dialog id="projectOutcomesDO-dialog">
+        <h5>Project Outcomes - Deregistered Office or Entity Does Not Exist</h5>
+        <br />
+
+        <img
+          src="./images/Project Outcomes - Deregistered office or entity does not exist.webp"
+        /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomDO-modal"
+          commandfor="projectOutcomesDO-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--Project Outcomes - No Info Available-->
+      <dialog id="projectOutcomesNIA-dialog">
+        <h5>Project Outcomes - No Info Available</h5>
+        <br />
+
+        <img src="./images/Project Outcomes - No info available.webp" /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomNIA-modal"
+          commandfor="projectOutcomesNIA-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!-- Divider -->
+
+      <!--Sector - Agriculture and green economy-->
+      <dialog id="sectorAGE-dialog">
+        <h5>Sector - Agriculture and Green Economy</h5>
+        <br />
+
+        <img src="./images/sector-Agriculture and green economy.webp" /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomAGE-modal"
+          commandfor="sectorAGE-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--Sector-Community Social and Personal Services and Health-->
+      <dialog id="sectorCS-dialog">
+        <h5>Sector-Community Social and Personal Services and Health</h5>
+        <br />
+
+        <img
+          src="./images/sector-Community social and personal services and health.webp"
+        /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomCS-modal"
+          commandfor="sectorCS-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--Sector-Education and ICT-->
+      <dialog id="sectorED-dialog">
+        <h5>Sector-Education and ICT</h5>
+        <br />
+
+        <img src="./images/sector-Education and ICT.webp" /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomED-modal"
+          commandfor="sectorED-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--Sector-Electricity Transport and Retail-->
+      <dialog id="sectorETR-dialog">
+        <h5>Sector-Electricity Transport and Retail</h5>
+        <br />
+
+        <img
+          src="./images/sector-Electricity transport and retail.webp"
+        /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomETR-modal"
+          commandfor="sectorETR-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--Sector-Mining construction and Manufacture-->
+      <dialog id="sectorMC-dialog">
+        <h5>Sector-Mining construction and Manufacture</h5>
+        <br />
+
+        <img src="./images/sector-Mining construction and manuf.webp" /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomMC-modal"
+          commandfor="sectorMC-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--Sector-Tourism and Business Services-->
+      <dialog id="sectorTBS-dialog">
+        <h5>Sector-Tourism and Business Services</h5>
+        <br />
+
+        <img src="./images/sector-Tourism and business services.webp" /><br />
+
+        <button
+          class="button button-primary"
+          id="closeBottomTBS-modal"
+          commandfor="sectorTBS-dialog"
+          command="close"
+        >
+          close
+        </button>
+      </dialog>
+
+      <!--End Dialog Modals-->
+
+      <!--Entity Category-->
+      <section class="section-md text-left bg-default">
+        <div
+          class="bg-decor d-flex align-items-center justify-content-end"
+          data-parallax-scroll='{"y": 130, "smoothness": 30}'
+        >
+          <img src="./spatial-maps.html" alt="" />
+        </div>
+        <div class="container">
+          <h4 class="heading-decorated">Entity Category</h4>
+
+          <div
+            class="isotope row"
+            data-isotope-layout="fitRows"
+            data-isotope-group="gallery"
+          >
+            <!--Entity Categories-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Entity Categories</div>
+
+                  <!--content-->
+                  <div class="content-component">
+                    BDS Provider | Funder | Other
+                  </div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="entityCategories-button"
+                      command="show-modal"
+                      commandfor="entityCategories-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--End Entity Categories-->
+
+            <!--Entity Categories BDS Provider-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Entity Categories</div>
+
+                  <!--content-->
+                  <div class="content-component">BDS Provider</div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="entityCategoriesBDS-button"
+                      command="show-modal"
+                      commandfor="entityCategoriesBDS-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--End Categories BDS Provider-->
+
+            <!--Entity Categories Funder-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Entity Categories</div>
+
+                  <!--content-->
+                  <div class="content-component">Funder</div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="entityCategoriesFunder-button"
+                      command="show-modal"
+                      commandfor="entityCategoriesFunder-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--End Categories BDS Funder-->
+          </div>
+        </div>
+      </section>
+      <!--End Entity Category-->
+
+      <!--Entity Size-->
+      <section class="section-md text-left bg-default">
+        <div
+          class="bg-decor d-flex align-items-center justify-content-end"
+          data-parallax-scroll='{"y": 130, "smoothness": 30}'
+        >
+          <img src="./spatial-maps.html" alt="" />
+        </div>
+        <div class="container">
+          <h4 class="heading-decorated">Entity Size</h4>
+          <div
+            class="isotope row"
+            data-isotope-layout="fitRows"
+            data-isotope-group="gallery"
+          >
+            <!--Entity size All-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Entity Size</div>
+
+                  <!--content-->
+                  <div class="content-component">SEDFA Entity Size</div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="entitySizeAll-button"
+                      command="show-modal"
+                      commandfor="entitySizeAll-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Entity size Individual and Cooperative-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Entity Size</div>
+
+                  <!--content-->
+                  <div class="content-component">
+                    Individual and Cooperative
+                  </div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="entitySizeIC-button"
+                      command="show-modal"
+                      commandfor="entitySizeIC-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Entity size Institution and Corporate-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Entity Size</div>
+
+                  <!--content-->
+                  <div class="content-component">Institution and Corporate</div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="entitySizeIAC-button"
+                      command="show-modal"
+                      commandfor="entitySizeIAC-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Entity size Small Business-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Entity Size</div>
+
+                  <!--content-->
+                  <div class="content-component">Small Business</div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="entitySizeSmall-button"
+                      command="show-modal"
+                      commandfor="entitySizeSmall-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--End Entity Size-->
+
+      <!--Entity Type-->
+      <section class="section-md text-left bg-default">
+        <div
+          class="bg-decor d-flex align-items-center justify-content-end"
+          data-parallax-scroll='{"y": 130, "smoothness": 30}'
+        >
+          <img src="./spatial-maps.html" alt="" />
+        </div>
+        <div class="container">
+          <h4 class="heading-decorated">Entity Type</h4>
+          <div
+            class="isotope row"
+            data-isotope-layout="fitRows"
+            data-isotope-group="gallery"
+          >
+            <!--Entity Type All-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Entity Type</div>
+
+                  <!--content-->
+                  <div class="content-component">All Entity Types</div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="entityTypeAll-button"
+                      command="show-modal"
+                      commandfor="entityTypeAll-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Entity Type Development Finance Institutions and Private Sector-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Entity Type</div>
+
+                  <!--content-->
+                  <div class="content-component">
+                    Development Finance Institutions and Private Sector
+                  </div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="entityTypeDFIPS-button"
+                      command="show-modal"
+                      commandfor="entityTypeDFIPS-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Entity Type Gov or Public Sector - Industry Assoc - International Dev-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Entity Type</div>
+
+                  <!--content-->
+                  <div class="content-component">
+                    Gov/Public Sector - Industry Assoc - International Developer
+                  </div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="entityTypeGP-button"
+                      command="show-modal"
+                      commandfor="entityTypeGP-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Entity Type - NGO/NPO-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Entity Type</div>
+
+                  <!--content-->
+                  <div class="content-component">NGO/NPO</div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="entityTypeNGO-button"
+                      command="show-modal"
+                      commandfor="entityTypeNGO-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--End Entity Type-->
+
+      <!--Geographic Reach-->
+      <section class="section-md text-left bg-default">
+        <div
+          class="bg-decor d-flex align-items-center justify-content-end"
+          data-parallax-scroll='{"y": 130, "smoothness": 30}'
+        >
+          <img src="./spatial-maps.html" alt="" />
+        </div>
+        <div class="container">
+          <h4 class="heading-decorated">Geographic Reach</h4>
+          <div
+            class="isotope row"
+            data-isotope-layout="fitRows"
+            data-isotope-group="gallery"
+          >
+            <!--All Geographic Reach-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Geographic Reach</div>
+
+                  <!--content-->
+                  <div class="content-component">All Geographic Reach</div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="geographicReachAll-button"
+                      command="show-modal"
+                      commandfor="geographicReachAll-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Geographic Reach International and Regional-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Geographic Reach</div>
+
+                  <!--content-->
+                  <div class="content-component">
+                    International and Regional
+                  </div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="geographicReachIR-button"
+                      command="show-modal"
+                      commandfor="geographicReachIR-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Geographic Reach - Local and Provincial-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Geographic Reach</div>
+
+                  <!--content-->
+                  <div class="content-component">Local and Provincial</div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="geographicReachLP-button"
+                      command="show-modal"
+                      commandfor="geographicReachLP-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Geographic Reach National-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Geographic Reach</div>
+
+                  <!--content-->
+                  <div class="content-component">National</div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="geographicReachN-button"
+                      command="show-modal"
+                      commandfor="geographicReachN-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--End Geographic Reach-->
+
+      <!--Project Outcomes-->
+      <section class="section-md text-left bg-default">
+        <div
+          class="bg-decor d-flex align-items-center justify-content-end"
+          data-parallax-scroll='{"y": 130, "smoothness": 30}'
+        >
+          <img src="./spatial-maps.html" alt="" />
+        </div>
+        <div class="container">
+          <h4 class="heading-decorated">Project Outcomes</h4>
+          <div
+            class="isotope row"
+            data-isotope-layout="fitRows"
+            data-isotope-group="gallery"
+          >
+            <!--Project Outcomes - Deregistered Office or Entity Does Not Exist-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Project Outcomes</div>
+
+                  <!--content-->
+                  <div class="content-component">
+                    Deregistered Office or Entity Does Not Exist
+                  </div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="projectOutcomesDO-button"
+                      command="show-modal"
+                      commandfor="projectOutcomesDO-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Project Outcomes - No Info Available-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Project Outcomes</div>
+
+                  <!--content-->
+                  <div class="content-component">No Info Available</div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="projectOutcomesNIA-button"
+                      command="show-modal"
+                      commandfor="projectOutcomesNIA-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--End Project Outcomes-->
+
+      <!--Sector-->
+      <section class="section-md text-left bg-default">
+        <div
+          class="bg-decor d-flex align-items-center justify-content-end"
+          data-parallax-scroll='{"y": 130, "smoothness": 30}'
+        >
+          <img src="./spatial-maps.html" alt="" />
+        </div>
+        <div class="container">
+          <h4 class="heading-decorated">Sector</h4>
+          <div
+            class="isotope row"
+            data-isotope-layout="fitRows"
+            data-isotope-group="gallery"
+          >
+            <!--Sector - Agriculture and Green Economy-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Sector</div>
+
+                  <!--content-->
+                  <div class="content-component">
+                    Agriculture and Green Economy
+                  </div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="sectorAGE-button"
+                      command="show-modal"
+                      commandfor="sectorAGE-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Sector-Community Social and Personal Services and Health-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Sector</div>
+
+                  <!--content-->
+                  <div class="content-component">
+                    Community Social and Personal Services and Health
+                  </div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="sectorCS-button"
+                      command="show-modal"
+                      commandfor="sectorCS-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Sector-Education and ICT-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Sector</div>
+
+                  <!--content-->
+                  <div class="content-component">Education and ICT</div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="sectorED-button"
+                      command="show-modal"
+                      commandfor="sectorED-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Sector-Electricity Transport and Retail-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Sector</div>
+
+                  <!--content-->
+                  <div class="content-component">
+                    Electricity Transport and Retail
+                  </div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="sectorETR-button"
+                      command="show-modal"
+                      commandfor="sectorETR-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Sector-Mining construction and Manufacture-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Sector</div>
+
+                  <!--content-->
+                  <div class="content-component">
+                    Mining construction and Manufacture
+                  </div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="sectorMC-button"
+                      command="show-modal"
+                      commandfor="sectorMC-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Sector-Tourism and Business Services-->
+            <div class="col-12 col-md-6 col-lg-4 isotope-item">
+              <div class="img-thumbnail-variant-3">
+                <img
+                  src="./images/media-sound-bites-bg.webp"
+                  alt=""
+                  width="418"
+                  height="315"
+                />
+
+                <div class="overlay-text-gold">
+                  <!--icon-->
+                  <div class="icon-heading">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-pin-map"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"
+                      />
+                    </svg>
+                  </div>
+
+                  <!--heading-->
+                  <div class="heading-component">Sector</div>
+
+                  <!--content-->
+                  <div class="content-component">
+                    Tourism and Business Services
+                  </div>
+
+                  <!--modal button-->
+                  <div class="button-component">
+                    <button
+                      class="button button-white"
+                      id="sectorTBS-button"
+                      command="show-modal"
+                      commandfor="sectorTBS-dialog"
+                    >
+                      View map
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--End Sector-->
+
+      <!-- Page Footer--><!--<a class="banner" href="https://www.templatemonster.com/intense-multipurpose-html-template.html" target="_blank"><img src="./images/intense_big_02.jpg" alt="" height="0"/></a>-->
+      <section class="pre-footer-corporate bg-image-7 bg-overlay-darkest">
+        <div class="container">
+          <div
+            class="row justify-content-sm-center justify-content-lg-start row-30 row-md-60"
+          >
+            <div class="col-sm-10 col-md-6 col-lg-10 col-xl-3">
+              <h6>Create Your Free Online Sedfa Account</h6>
+
+              <ul class="list-xs">
+                <li>
+                  <dl class="list-terms-minimal">
+                    <dd>
+                      Create an eThuse account that will expose you to helpful
+                      business tools and funding interventions that will assist
+                      your business to grow and notify you when funding
+                      interventions are open for application.
+                    </dd>
+                  </dl>
+                </li>
+              </ul>
+
+              <p>
+                <a href=" https://www.ethuse.org.za/web/login" target="_blank"
+                  >Register Now</a
+                >
+              </p>
+            </div>
+            <div class="col-sm-10 col-md-6 col-lg-3 col-xl-3">
+              <h6>Navigation</h6>
+              <ul class="list-xxs">
+                <li><a href="./spatial-maps.html">Home</a></li>
+
+                <li>
+                  <a href="./business-development.html">Business Development</a>
+                </li>
+
+                <li>
+                  <a href="./financial-support.html">Financial Support</a>
+                </li>
+
+                <li>
+                  <a href="./cooperative-support.html">Cooperative Support</a>
+                </li>
+
+                <li><a href="https://careers.sedfa.org.za">Careers</a></li>
+
+                <li><a href="./tenders.html">Tenders</a></li>
+
+                <li><a href="./rfq.html">RFQs</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-10 col-md-6 col-lg-5 col-xl-3">
+              <h6>Quick Links</h6>
+              <ul class="list-xs">
+                <li>
+                  <!-- Comment minimal-->
+                  <article class="comment-minimal">
+                    <p>
+                      <a
+                        href="./publication/SEDFA PAIA AND POPIA  MANUAL.pdf"
+                        target="_blank"
+                        >PAIA Manual</a
+                      >
+                    </p>
+                  </article>
+                </li>
+                <li>
+                  <!-- Comment minimal-->
+                  <article class="comment-minimal">
+                    <p>
+                      <a
+                        href="./documents/NCR - Head Office.pdf"
+                        target="_blank"
+                        >NCR Certificate</a
+                      >
+                    </p>
+                  </article>
+                </li>
+                <li>
+                  <!-- Comment minimal-->
+                  <article class="comment-minimal">
+                    <!--<p ><a href="https://systemsnew.sefa.org.za/ComplaintForm/Complaint/Create?Channel=5F3B02D6-511B-484B-8BE6-C496BC17DA39" target="_blank">Complaints</a></p>-->
+                  </article>
+                </li>
+              </ul>
+            </div>
+            <div class="col-sm-10 col-md-6 col-lg-4 col-xl-3">
+              <h6>Contacts</h6>
+              <ul class="list-xs">
+                <li>
+                  <dl class="list-terms-minimal">
+                    <dt>Call Centre</dt>
+                    <dd>
+                      <ul class="list-semicolon">
+                        <li>0764278670</li>
+                        <li>+(27) 107463316</li>
+                      </ul>
+                    </dd>
+                  </dl>
+                </li>
+                <li>
+                  <dl class="list-terms-minimal">
+                    <dt>E-mail</dt>
+                    <dd>
+                      <a href="mailto:ndbsouthafrica@financier.com"
+                        >ndbsouthafrica@financier.com</a
+                      >
+                    </dd>
+                  </dl>
+                </li>
+                <li>
+                  <dl class="list-terms-minimal">
+                    <dt>Trading Hours</dt>
+                    <dd>Mon – Fri, 8H00 – 16H30</dd>
+                  </dl>
+                </li>
+                <li>
+                  <dl class="list-terms-minimal">
+                    <dt>South Africa Address</dt>
+                    <dd>Sandton city tower, 2196 Johannesburg south Africa</dd>
+                  </dl>
+                </li>
+                <li>
+                  <dl class="list-terms-minimal">
+                    <dt>China Address</dt>
+                    <dd>
+                      NDB HEADQUARTERS. 1600, Guozhan Road, Pudong New District,
+                      Shanghai – 200126 China
+                    </dd>
+                  </dl>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer-corporate bg-gray-darkest">
+        <div class="container">
+          <div class="footer-corporate__inner">
+            <p class="rights">
+              <span>Copyright &copy;</span><span>&nbsp;</span
+              ><span class="copyright-year"></span> NDB. All rights reserved.
+              <b>NCR NO: 20821</b>
+            </p>
+
+            <ul class="list-inline-xxs">
+              <!--Facebook-->
+              <li>
+                <a href="https://www.facebook.com/Sedfa.dsbd/" target="_blank">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17"
+                    height="17"
+                    fill="currentColor"
+                    class="bi bi-facebook"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
+                    />
+                  </svg>
+                </a>
+              </li>
+
+              <!--Tiktok-->
+              <li>
+                <a href="https://www.tiktok.com/@sedfa_dsbd" target="_blank">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-tiktok"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"
+                    />
+                  </svg>
+                </a>
+              </li>
+
+              <!--X-->
+              <li>
+                <a href="https://x.com/sedfa_dsbd" target="_blank">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-twitter-x"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
+                    />
+                  </svg>
+                </a>
+              </li>
+
+              <!--Instagram-->
+              <li>
+                <a href="https://www.instagram.com/sedfa_dsbd/" target="_blank">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-instagram"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                    />
+                  </svg>
+                </a>
+              </li>
+
+              <!--Linkedin-->
+              <li>
+                <a
+                  href="https://za.linkedin.com/company/small-enterprise-development-finance-agency"
+                  target="_blank"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-linkedin"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+                    />
+                  </svg>
+                </a>
+              </li>
+
+              <!--YouTube-->
+              <li>
+                <a href="https://www.youtube.com/@sedfa_dsbd" target="_blank">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    class="bi bi-youtube"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"
+                    />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+      <!--End Footer-->
+    </div>
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="./js/script.js"></script>
+    <!--<script src="./js/dialog.js"></script>-->
+  </body>
+</html>
