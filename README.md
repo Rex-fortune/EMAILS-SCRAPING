@@ -7,10 +7,11 @@ USAGE
   This is a python file. it has no external dependency. Just install python. Python3 was use for this case
 
 RUN
-python fetch_email.py [country] [numbers]
+chmod +x ./fetch_email.py
+./fetch_email.py [country] [numbers]
 
 EXAMPLES
 
-python fetch_email.py us 50000
-pythn fetch_email.py za 10000
-python fetch_email.py uk 20000
+./fetch_email.py us 50000
+./fetch_email.py za 10000
+./fetch_email.py uk 20000
